@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تنظیمات DebtRead</title>
+  <style>
+    :root {
+      --bg: #0f1a15;
+      --card: #1a2a22;
+      --border: #2d3f35;
+      --text: #e8f0eb;
+      --muted: #8aa193;
+      --primary: #2d6a4f;
+      --accent: #e07a5f;
+      --radius: 12px;
+      --font: 'Segoe UI', Tahoma, system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 580px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 32px; }
+    header h1 { font-size: 24px; margin-bottom: 6px; }
+    header p { color: var(--muted); font-size: 13px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-size: 15px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      font-size: 14px;
+    }
+    .actions { display: flex; gap: 10px; margin-top: 8px; }
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.1); }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .status {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #52b788;
+      min-height: 20px;
+    }
+    .about-content p { margin-bottom: 10px; color: var(--muted); font-size: 13.5px; }
+    .about-content strong { color: var(--text); }
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>DebtRead</h1>
+      <p>مدیریت بدهی خواندن — کاملاً محلی</p>
+    </header>
+
+    <div class="card">
+      <h2>تنظیمات مطالعه</h2>
+      <div class="form-group">
+        <label>سرعت مطالعه (کلمه در دقیقه)</label>
+        <input type="number" id="wpm" min="100" max="400" value="200" />
+        <p class="hint">برای محاسبه زمان تخمینی خواندن استفاده می‌شود. مقدار پیش‌فرض ۲۰۰ است.</p>
+      </div>
+      <div class="form-group">
+        <label>آستانه هشدار بدهی (دقیقه)</label>
+        <input type="number" id="warningMinutes" min="10" max="300" value="30" />
+        <p class="hint">وقتی بدهی از این مقدار بیشتر شود، روی آیکون اکستنشن عدد نمایش داده می‌شود.</p>
+      </div>
+      <div class="form-group">
+        <label>آستانه مقالات قدیمی (روز)</label>
+        <input type="number" id="autoArchiveDays" min="14" max="365" value="90" />
+        <p class="hint">مقالات خوانده‌نشده قدیمی‌تر از این تعداد روز در بخش «تصمیم بگیر» نمایش داده می‌شوند.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="saveBtn">ذخیره تنظیمات</button>
+      <button class="btn-secondary" id="resetBtn">بازگردانی پیش‌فرض</button>
+    </div>
+    <div class="status" id="status"></div>
+
+    <div class="card" style="margin-top: 28px;">
+      <h2>درباره</h2>
+      <div class="about-content">
+        <p><strong>DebtRead</strong> یک ابزار محلی و کاملاً رایگان برای مدیریت «بدهی خواندن» است. این برنامه به شما کمک می‌کند مقالات و صفحات وب مورد علاقه‌تان را ذخیره کنید، زمان تقریبی مطالعه آن‌ها را بدانید، و همیشه بدانید چقدر «بدهی خواندن» دارید. با DebtRead می‌توانید صف مطالعه خود را اولویت‌بندی کنید، هایلایت بزنید و یادداشت بنویسید، و همه این‌ها را به صورت آفلاین و امن روی دستگاه خود نگه دارید.</p>
+        <p>تمام داده‌ها فقط روی مرورگر شما ذخیره می‌شوند. هیچ سرور، هیچ حساب کاربری و هیچ ارسال اطلاعاتی به بیرون وجود ندارد. شما صاحب داده‌های خود هستید.</p>
+        <p style="margin-top: 16px;"><strong>توسعه‌دهنده:</strong> پوریا نوروزی</p>
+        <p><strong>گیت‌هاب:</strong> <a href="https://github.com/pourianorozi" target="_blank" rel="noopener noreferrer" style="color: #74c69d; text-decoration: none;">github.com/pourianorozi</a></p>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">نسخه ۱.۳.۲ — ساخته‌شده با علاقه برای بهره‌وری شخصی</p>
+      </div>
+    </div>
+
+    <footer>
+      DebtRead · ۱۰۰٪ محلی · بدون هزینه
+    </footer>
+  </div>
+
+  <script src="src/options.js"></script>
+</body>
+</html>
