@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DebtRead Reader</title>
+  <link rel="stylesheet" href="/styles/reader.css" />
+</head>
+<body>
+  <div class="reader-app">
+    <header class="reader-header">
+      <button id="backBtn" class="header-btn">← بازگشت</button>
+      <div class="header-actions">
+        <button id="markReadBtn" class="header-btn">علامت‌گذاری خوانده‌شده</button>
+        <button id="deleteBtn" class="header-btn danger">حذف</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <h3>تگ‌ها</h3>
+      <div class="tag-add">
+        <input type="text" id="tagInput" placeholder="تگ جدید..." maxlength="40" />
+        <button id="addTagBtn">+</button>
+      </div>
+      <div id="tagList" class="tag-list"></div>
+
+      <h3 style="margin-top:20px">هایلایت‌ها</h3>
+      <div id="highlightList" class="highlight-list">
+        <p class="empty-side">متنی را انتخاب کنید تا هایلایت شود.</p>
+      </div>
+    </aside>
+
+    <main class="reader-main">
+      <article class="article">
+        <h1 id="title">در حال بارگذاری...</h1>
+        <div class="meta" id="meta"></div>
+        <div class="content" id="content"></div>
+      </article>
+    </main>
+  </div>
+
+  <div id="highlightMenu" class="highlight-menu hidden">
+    <button data-color="yellow">زرد</button>
+    <button data-color="green">سبز</button>
+    <button data-color="blue">آبی</button>
+    <button data-color="pink">صورتی</button>
+  </div>
+
+  <script src="/src/reader.js" type="module"></script>
+</body>
+</html>

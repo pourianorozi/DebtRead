@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DebtRead</title>
+  <link rel="stylesheet" href="styles/popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="logo">◉</span>
+        <div>
+          <h1>DebtRead</h1>
+          <p class="tagline">بدهی خواندن خود را مدیریت کنید</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="debt-card" id="debtCard">
+      <div class="debt-value" id="debtMinutes">—</div>
+      <div class="debt-label">دقیقه بدهی خواندن</div>
+      <div class="debt-meta" id="debtCount">۰ مقاله خوانده‌نشده</div>
+    </section>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn primary" title="ذخیره صفحه فعلی">
+        ذخیره این صفحه
+      </button>
+      <button id="quickBtn" class="btn secondary" title="فقط مقالات کوتاه">
+        ۱۰ دقیقه چیه؟
+      </button>
+    </div>
+
+    <div class="search-box">
+      <input type="search" id="searchInput" placeholder="جستجو در عنوان و متن..." autocomplete="off" />
+    </div>
+
+    <section class="list-section">
+      <div class="list-header">
+        <h2>صف اولویت</h2>
+        <button id="refreshBtn" class="icon-btn" title="بروزرسانی">↻</button>
+      </div>
+      <div id="articleList" class="article-list">
+        <div class="empty">هنوز مقاله‌ای ذخیره نشده است.</div>
+      </div>
+    </section>
+
+    <section class="list-section" id="staleSection" style="display:none">
+      <div class="list-header">
+        <h2>تصمیم بگیر (قدیمی‌ها)</h2>
+      </div>
+      <div id="staleList" class="article-list"></div>
+    </section>
+
+    <footer class="footer">
+      <button id="optionsBtn" class="link-btn">تنظیمات و درباره</button>
+      <button id="exportBtn" class="link-btn">خروجی</button>
+    </footer>
+  </div>
+
+  <script src="libs/fuse.min.js"></script>
+  <script src="src/popup.js" type="module"></script>
+</body>
+</html>
